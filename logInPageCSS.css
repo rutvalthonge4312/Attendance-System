@@ -1,0 +1,88 @@
+body {
+}
+.navbarHeader {
+  z-index: 1;
+  position: sticky;
+}
+.actualBodyPartInWeb {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.navbarHeader a {
+  color: rgb(129, 141, 199);
+}
+.navbarHeader button {
+  background-color: black;
+  color: white;
+}
+.formIn {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid rgb(129, 141, 199);
+  border-radius: 9px;
+  padding: 1rem 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  height: auto;
+  width: auto;
+}
+
+.formIn .formBody input {
+  height: auto;
+  width: auto;
+  min-width: 25rem;
+}
+.formIn .formBody h2 {
+  color: rgb(129, 141, 199);
+}
+.formIn .formBody .btn {
+  height: auto;
+  width: auto;
+  min-width: 15rem;
+}
+.imageInForm {
+  margin: 1rem;
+}
+.imageInForm img {
+  height: auto;
+  width: auto;
+  max-width: 25rem;
+  max-height: 25rem;
+}
+@media screen and (max-width: 868px) {
+  .formIn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(129, 141, 199);
+    border-radius: 9px;
+    padding: 1rem 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    height: auto;
+    width: auto;
+  }
+}
+@media screen and (max-width: 476px) {
+  .formIn .formBody input {
+    height: auto;
+    width: auto;
+    min-width: 5rem;
+    max-width: 15rem;
+  }
+  .formIn .formBody .btn {
+    height: auto;
+    width: auto;
+    min-width: 10rem;
+  }
+  .formIn {
+    max-width: 24rem;
+  }
+}
