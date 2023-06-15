@@ -1,0 +1,26 @@
+.mainContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  gap: 1.1rem;
+  border: 2px solid red;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+.mainContainer * {
+  height: auto;
+  width: auto;
+}
+@media screen and (max-width: 476px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 770px) {
+  .mainContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
