@@ -22,6 +22,47 @@ lightButton.addEventListener("click", function () {
   changeThemeButton.style.backgroundColor = "white";
 });
 
+let edtPassword = document.getElementById("password");
+
+let edtUsername = document.getElementById("username");
+
 logInButton.addEventListener("click", function () {
-  window.location.href = "ActualPage.html";
+  var apiUrl = "http://localhost/Attendance_API/index.php/user/signin";
+
+  console.log(edtUsername.value);
+  var params = {
+    username: edtUsername.value,
+    password: edtPassword.value,
+  };
+
+  // console.log("payload" + JSON.stringify(params.values));
+  console.log(params);
+  let body = Object.keys(params)
+    .map((key) => {
+      return encodeURIComponent(key) + "=" + encodeURIComponent(params[key]);
+    })
+    .join("&");
+  const request = new Request(apiUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: body,
+  });
+
+  fetch(request)
+    .then((response) => response.json())
+    .then((responseJson) => {
+      console.log(JSON.stringify(responseJson));
+      if (responseJson.status == 200) {
+        window.location.href = "ActualPage.html";
+      } else {
+        alert("Invalid Credentials");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  //
 });
