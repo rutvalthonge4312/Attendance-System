@@ -13,99 +13,106 @@
     <link rel="stylesheet" href="ActualPageCSS.css" />
   </head>
   <body>
-    <div class="navbarHeader">
-      <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Track Attendance</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">For You</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Choose Theame
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Dark</a></li>
-            <li><a class="dropdown-item" href="#">Light</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="mainContainer">
-      <div class="card1">
-        <div class="card" style="width: 18rem">
-          <img
-            src="Iamges/card1.jpg"
-            class="card-img-top"
-            alt="attendance Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Take Attendance</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go to Attendance</a>
-          </div>
-        </div>
-      </div>
-      <div class="card2">
-        <div class="card" style="width: 18rem">
-          <img src="Iamges/card2Img.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Add Student</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Add Student</a>
-          </div>
-        </div>
-      </div>
-      <div class="card3">
-        <div class="card" style="width: 18rem">
-          <img src="Iamges/card3Image.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Remove Student</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Remove Student</a>
-          </div>
-        </div>
-      </div>
-      <div class="card4">
-        <div class="card" style="width: 18rem">
-          <img src="Iamges/card4Image.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Show Student Data</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="showStudentData.html" class="btn btn-primary"
-              >Go to student data</a
+    <div class="allContaint">
+      <div class="navbarHeader">
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Track Attendance</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">For You</a>
+          </li>
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
             >
+              Choose Theame
+            </button>
+            <ul class="dropdown-menu">
+              <button type="button" class="btn btn-dark" id="darkButton">
+                Dark
+              </button>
+              <button type="button" class="btn btn-light" id="lightButton">
+                Light
+              </button>
+            </ul>
+          </div>
+        </ul>
+      </div>
+      <div class="mainContainer">
+        <div class="card1">
+          <div class="card" style="width: 18rem">
+            <img
+              src="Iamges/card1.jpg"
+              class="card-img-top"
+              alt="attendance Image"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Take Attendance</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go to Attendance</a>
+            </div>
+          </div>
+        </div>
+        <div class="card2">
+          <div class="card" style="width: 18rem">
+            <img src="Iamges/card2Img.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Add Student</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Add Student</a>
+            </div>
+          </div>
+        </div>
+        <div class="card3">
+          <div class="card" style="width: 18rem">
+            <img src="Iamges/card3Image.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Remove Student</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="removeStudent.html" class="btn btn-primary"
+                >Remove Student</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="card4">
+          <div class="card" style="width: 18rem">
+            <img src="Iamges/card4Image.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Show Student Data</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="showStudentData.html" class="btn btn-primary"
+                >Go to student data</a
+              >
+            </div>
           </div>
         </div>
       </div>
     </div>
-
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
+    <script src="ActualPageJS.js"></script>
   </body>
 </html>

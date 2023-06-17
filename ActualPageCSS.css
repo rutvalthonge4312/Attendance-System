@@ -1,26 +1,29 @@
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 .mainContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.5rem;
 
-  gap: 1.1rem;
-  border: 2px solid red;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5rem;
+  margin: 5rem 5rem;
 }
-.mainContainer * {
-  height: auto;
-  width: auto;
-}
-@media screen and (max-width: 476px) {
-  .mainContainer {
-    display: flex;
-    flex-direction: column;
-  }
+.card {
+  border: 1px solid #768392;
+  box-shadow: 11px 8px 17px 0px #768392;
 }
 @media screen and (max-width: 770px) {
   .mainContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 476px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
   }
 }

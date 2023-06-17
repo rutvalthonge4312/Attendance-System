@@ -4,6 +4,8 @@ var body = document.body;
 var formBody = document.getElementsByClassName("formBody");
 var navBar = document.getElementsByClassName("navbarHeader");
 var logInButton = document.getElementById("logInButton");
+var alertIn = document.getElementById("alertIn");
+alertIn.style.display = "none";
 
 darkButton.addEventListener("click", function () {
   body.style.backgroundColor = "black";
@@ -57,7 +59,7 @@ logInButton.addEventListener("click", function () {
       if (responseJson.status == 200) {
         window.location.href = "ActualPage.html";
       } else {
-        alert("Invalid Credentials");
+        alertIn.style.display = "block";
       }
     })
     .catch((err) => {
