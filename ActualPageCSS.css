@@ -12,7 +12,7 @@
   height: auto;
   width: auto;
 }
-@media screen and (max-width: 476px) {
+@media screen and (max-width: 500px) {
   .mainContainer {
     display: flex;
     flex-direction: column;
