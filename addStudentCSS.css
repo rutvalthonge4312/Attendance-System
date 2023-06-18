@@ -1,0 +1,38 @@
+.maincontainer {
+  position: relative;
+  display: flex;
+  margin-top: 5rem;
+  border: 2px solid rgb(88, 79, 144);
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 1000px) {
+  .maincontainer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    border: 2px solid rgb(88, 79, 144);
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    margin: 5rem 15rem;
+    /* margin: auto;*/
+  }
+}
+.maincontainer form {
+  margin: auto;
+}
+.maincontainer .formBody {
+}
+.maincontainer .imageBody {
+  height: auto;
+  width: auto;
+  max-width: 25rem;
+  max-height: 25rem;
+}
+#backButton {
+  float: right;
+  position: fixed;
+}
