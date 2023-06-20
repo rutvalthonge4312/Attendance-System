@@ -32,7 +32,7 @@ class Database
             $stmt = $this->executeStatement($query, $params);
             // $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
             $stmt->close();
-            return $stmt;
+            return true;
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }

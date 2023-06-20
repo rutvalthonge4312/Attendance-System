@@ -96,6 +96,7 @@ class UserController extends BaseController
     {
         $strErrorDesc = '';
         $requestMethod = $_SERVER["REQUEST_METHOD"];
+        //$requestMethod = 'POST';
         // echo print_r($_SERVER);
         if (strtoupper($requestMethod) == 'POST') {
             try {
