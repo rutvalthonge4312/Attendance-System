@@ -9,7 +9,7 @@ html {
   gap: 0.1rem;
   place-items: center;
   margin-top: 5rem;
-
+  place-items: center;
   width: 100vw;
 }
 
@@ -37,6 +37,10 @@ html {
     place-items: center;
     grid-template-columns: 1fr 1fr;
   }
+  .card {
+    border: 1px solid #768392;
+    box-shadow: 11px 8px 17px 0px #e2e5e9;
+  }
 }
 
 @media screen and (max-width: 476px) {
@@ -46,4 +50,7 @@ html {
     justify-content: center;
     align-items: center;
   }
+}
+.myDivInside {
+  background-color: red;
 }
