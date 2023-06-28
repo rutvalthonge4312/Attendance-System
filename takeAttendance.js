@@ -14,7 +14,7 @@ fetch(request)
       var i = 0;
 
       html =
-        "<tr><th>Sr.No</th><th>Name</th><th>Roll Number</th><th>Total Attendance</th><th>Division</th><th>Button</th>";
+        "<tr><th>Sr.No</th><th>Name</th><th>Roll Number</th><th>Total Attendance</th><th>Division</th><th>Present</th>";
       responseJson.data.forEach((element) => {
         let trHtml = "<tr>";
         trHtml += "<td>" + (i + 1) + "</td>";
@@ -23,11 +23,15 @@ fetch(request)
         trHtml += "<td>" + element.roll + "</td>";
         trHtml += "<td>" + element.totalAttendance + "</td>";
         trHtml += "<td>" + element.division + "</td>";
-
+        let id = "radioNoLabel";
+        let idInTable = id.concat(i);
         trHtml +=
           "<td>" +
-          "<button type='button' class='btn-close' aria-label='Close'></button>" +
+          "<div ><input class='form-check-input' type='radio' name='radioNoLabel' id='" +
+          idInTable +
+          "' value='' aria-label='...'></div>" +
           "</td>";
+
         //<button type='button' class='btn-close' aria-label='Close'></button>
         trHtml += "</tr>"; //new row
         html += trHtml;
