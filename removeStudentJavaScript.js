@@ -1,4 +1,6 @@
 var apiUrl = "http://localhost/Attendance_API/index.php/user/list?limit=100";
+var body = document.body;
+var mainContainer = document.getElementsByClassName("mainContainer");
 var button = document.createElement("button");
 const request = new Request(apiUrl, {
   method: "GET",
@@ -24,10 +26,23 @@ fetch(request)
         trHtml += "<td>" + element.totalAttendance + "</td>";
         trHtml += "<td>" + element.division + "</td>";
 
+        let temp = "remove";
+        let removeId = temp.concat(i);
+
+        /* trHtml +=
+          "<td>" +
+          "<button type='button' class=''btn-close'  id='" +
+          removeID +
+          "' value='' aria-label='Close'></button>" +
+          "</td>";
+*/
         trHtml +=
           "<td>" +
-          "<button type='button' class='btn-close' aria-label='Close'></button>" +
+          "<div ><input class='form-check-input' type='radio' name='radioNoLabel' id='" +
+          removeId +
+          "' value='' aria-label='...'></div>" +
           "</td>";
+
         //<button type='button' class='btn-close' aria-label='Close'></button>
         trHtml += "</tr>"; //new row
         html += trHtml;
@@ -40,4 +55,10 @@ fetch(request)
     console.log(err);
   });
 
-//
+var darkMode = document.getElementById("darkMode");
+var lightMode = document.getElementById("lightMode");
+
+darkMode.addEventListener("click", function () {
+  body.style.backgroundColor = "black";
+  mainContainer.style.backgroundColor = "black";
+});
