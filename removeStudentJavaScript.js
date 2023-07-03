@@ -1,6 +1,8 @@
 var apiUrl = "http://localhost/Attendance_API/index.php/user/list?limit=100";
 var body = document.body;
 var mainContainer = document.getElementsByClassName("mainContainer");
+var incre = 0;
+
 var button = document.createElement("button");
 const request = new Request(apiUrl, {
   method: "GET",
@@ -38,7 +40,7 @@ fetch(request)
 */
         trHtml +=
           "<td>" +
-          "<div ><input class='form-check-input' type='radio' name='radioNoLabel' id='" +
+          "<div ><button type='button' class='btn-close'  aria-label='Close' id='" +
           removeId +
           "' value='' aria-label='...'></div>" +
           "</td>";
@@ -47,10 +49,13 @@ fetch(request)
         trHtml += "</tr>"; //new row
         html += trHtml;
         i++;
+        incre++;
       });
+
       tableInShow.innerHTML = html;
     }
   })
+
   .catch((err) => {
     console.log(err);
   });
@@ -61,4 +66,12 @@ var lightMode = document.getElementById("lightMode");
 darkMode.addEventListener("click", function () {
   body.style.backgroundColor = "black";
   mainContainer.style.backgroundColor = "black";
+});
+lightMode.addEventListener("click", function () {
+  body.style.backgroundColor = "white";
+  mainContainer.style.backgroundColor = "white";
+});
+
+button.addEventListener("click", function () {
+  alert("dsvbvb");
 });

@@ -5,3 +5,6 @@
   justify-content: center;
   align-items: center;
 }
+.btn-close {
+  background-color: red;
+}
