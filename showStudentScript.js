@@ -1,3 +1,7 @@
+var darkButton = document.getElementById("darkMode");
+var lightButton = document.getElementById("lightMode");
+var body = document.body;
+var table = document.getElementById("tableInShow");
 var apiUrl = "http://localhost/Attendance_API/index.php/user/list?limit=50";
 const request = new Request(apiUrl, {
   method: "GET",
@@ -34,3 +38,17 @@ fetch(request)
   });
 
 //
+darkMode.addEventListener("click", function () {
+  body.style.backgroundColor = "black";
+  table.classList.add("table-dark");
+});
+
+lightMode.addEventListener("click", function () {
+  body.style.backgroundColor = "white";
+  table.classList.remove("table-dark");
+  table.classList.add("table-light");
+});
+var backButton = document.getElementById("backButton");
+backButton.addEventListener("click", function () {
+  window.location.href = "ActualPage.html";
+});

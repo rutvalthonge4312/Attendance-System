@@ -1,5 +1,5 @@
-var darkButton = document.getElementById("darkButton");
-var lightButton = document.getElementById("lightButton");
+var darkButton = document.getElementById("darkMode");
+var lightButton = document.getElementById("lightMode");
 var allContaint = document.getElementsByClassName(".allContaint");
 var body = document.body;
 var card = document.getElementsByClassName("card");

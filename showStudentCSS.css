@@ -34,9 +34,7 @@ table button:hover {
   transform: scaleX(0.9);
   transition: all ease-in-out 0.5s;
 }
-table td {
-  border-bottom: 1px solid blue;
-}
+
 table tr:hover {
   background-color: rgba(235, 235, 235, 0.874);
 }
@@ -48,4 +46,8 @@ table tr,
 td {
   padding: 2rem;
   margin: 1rem;
+}
+#backButton {
+  float: right;
+  margin: auto;
 }

@@ -2,6 +2,7 @@ var apiUrl = "http://localhost/Attendance_API/index.php/user/list?limit=100";
 var body = document.body;
 var mainContainer = document.getElementsByClassName("mainContainer");
 var incre = 0;
+var table = document.getElementById("tableInShow");
 
 var button = document.createElement("button");
 const request = new Request(apiUrl, {
@@ -58,6 +59,7 @@ fetch(request)
 
   .catch((err) => {
     console.log(err);
+    alert("Something Wrong!");
   });
 
 var darkMode = document.getElementById("darkMode");
@@ -65,13 +67,16 @@ var lightMode = document.getElementById("lightMode");
 
 darkMode.addEventListener("click", function () {
   body.style.backgroundColor = "black";
-  mainContainer.style.backgroundColor = "black";
-});
-lightMode.addEventListener("click", function () {
-  body.style.backgroundColor = "white";
-  mainContainer.style.backgroundColor = "white";
+  table.classList.add("table-dark");
 });
 
-button.addEventListener("click", function () {
-  alert("dsvbvb");
+lightMode.addEventListener("click", function () {
+  body.style.backgroundColor = "white";
+  table.classList.remove("table-dark");
+  table.classList.add("table-light");
+});
+
+var backButton = document.getElementById("backButton");
+backButton.addEventListener("click", function () {
+  window.location.href = "ActualPage.html";
 });
