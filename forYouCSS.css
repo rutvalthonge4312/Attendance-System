@@ -1,0 +1,66 @@
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+.mainContainer .card {
+  border: 2px solid rebeccapurple;
+  margin: 2rem;
+  border-radius: 15px;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgba(51, 153, 204, 255);
+}
+.btn {
+  background-color: rgba(51, 153, 204, 255);
+}
+.card1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.card:hover {
+  transform: translateY(-1rem);
+
+  transition: all ease-in-out 0.5s;
+}
+.cards {
+  background-color: rebeccapurple;
+}
+
+@media screen and (max-width: 776px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .card1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+  .card2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+}
