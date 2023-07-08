@@ -12,7 +12,7 @@ class UserController extends BaseController
         if (strtoupper($requestMethod) == 'GET') {
             try {
                 $userModel = new UserModel();
-                $intLimit = 10;
+                $intLimit = 100;
                 if (isset($arrQueryStringParams['limit']) && $arrQueryStringParams['limit']) {
                     $intLimit = $arrQueryStringParams['limit'];
                 }
@@ -46,6 +46,7 @@ class UserController extends BaseController
     {
         $strErrorDesc = '';
         $requestMethod = $_SERVER["REQUEST_METHOD"];
+
         // echo print_r($_SERVER);
         if (strtoupper($requestMethod) == 'POST') {
             try {
@@ -95,39 +96,34 @@ class UserController extends BaseController
     public function addStudentAction()
     {
         $strErrorDesc = '';
-        $requestMethod = $_SERVER["REQUEST_METHOD"];
-        //$requestMethod = 'POST';
+        // $requestMethod = $_SERVER["REQUEST_METHOD"];
+        $requestMethod = 'POST';
         // echo print_r($_SERVER);
         if (strtoupper($requestMethod) == 'POST') {
             try {
                 $userModel = new UserModel();
+                $roll;
+                $Name;
+                $division;
 
-                if (
-                    (isset($_POST['Name']) && isset($_POST['Name'])) &&
-                    (isset($_POST['roll']) && isset($_POST['Name'])) &&
-                    (isset($_POST['division']) && isset($_POST['Name'])) &&
-                    (isset($_POST['totalAttendance']) && isset($_POST['Name']))
-                ) {
-
-                    $name = $_POST['Name'];
+                if ((isset($_POST['roll']) && $_POST['roll']) && (isset($_POST['Name']) && $_POST['Name']) && (isset($_POST['division']) && $_POST['division'])) {
                     $roll = $_POST['roll'];
+                    $Name = $_POST['Name'];
                     $division = $_POST['division'];
-                    $totalAttendance = $_POST['totalAttendance'];
 
-                    if ($name && $roll && $division && $totalAttendance) {
-                        // Call the addStudent() method to insert the student data into the database
-                        $insertedStudent = $userModel->addStudent($name, $roll, $division, $totalAttendance);
 
-                        if ($insertedStudent) {
-                            $responseData = '{"status":200,"message":"Student Added Successfully","data":' . json_encode($insertedStudent) . '}';
+
+                    if ($roll && $Name && $division) {
+                        $arrUsers = $userModel->addStudent($roll, $Name, $division);
+                        if ($arrUsers) {
+                            $responseData = '{"status":200,"message":"User Login Successfully","data":' . json_encode($arrUsers) . '}';
                         } else {
-                            $strErrorDesc = 'Failed to add student to the database';
-                            $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
+                            $strErrorDesc = 'User Credentials Wrong';
+                            $strErrorHeader = 'HTTP/1.1 401 Authentication Failure';
                         }
                     }
                 } else {
-
-                    $strErrorDesc = 'Please enter all the required credentials';
+                    $strErrorDesc = 'Please enter credentials';
                     $strErrorHeader = 'HTTP/1.1 200 OK';
                 }
             } catch (Error $e) {
@@ -138,8 +134,7 @@ class UserController extends BaseController
             $strErrorDesc = 'Method not supported';
             $strErrorHeader = 'HTTP/1.1 422 Unprocessable Entity';
         }
-
-        // Send output
+        // send output 
         if (!$strErrorDesc) {
             $this->sendOutput(
                 $responseData,
@@ -153,6 +148,59 @@ class UserController extends BaseController
         }
     }
 
+
+    public function removeStudentAction()
+    {
+        $strErrorDesc = '';
+        $requestMethod = $_SERVER["REQUEST_METHOD"];
+
+        // echo print_r($_SERVER);
+        if (strtoupper($requestMethod) == 'POST') {
+            try {
+                $userModel = new UserModel();
+                $roll;
+
+
+                if ((isset($_POST['roll']) && $_POST['roll'])) {
+                    $roll = $_POST['roll'];
+
+
+
+
+                    if ($roll) {
+                        $arrUsers = $userModel->removeStudent($roll);
+                        if ($arrUsers) {
+                            $responseData = '{"status":200,"message":"User Login Successfully","data":' . json_encode($arrUsers) . '}';
+                        } else {
+                            $strErrorDesc = 'User Credentials Wrong';
+                            $strErrorHeader = 'HTTP/1.1 401 Authentication Failure';
+                        }
+                    }
+                } else {
+                    $strErrorDesc = 'Please enter credentials';
+                    $strErrorHeader = 'HTTP/1.1 200 OK';
+                }
+            } catch (Error $e) {
+                $strErrorDesc = $e->getMessage() . 'Something went wrong! Please contact support.';
+                $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
+            }
+        } else {
+            $strErrorDesc = 'Method not supported';
+            $strErrorHeader = 'HTTP/1.1 422 Unprocessable Entity';
+        }
+        // send output 
+        if (!$strErrorDesc) {
+            $this->sendOutput(
+                $responseData,
+                array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+            );
+        } else {
+            $this->sendOutput(
+                json_encode(array('error' => $strErrorDesc)),
+                array('Content-Type: application/json', $strErrorHeader)
+            );
+        }
+    }
 
 
 }

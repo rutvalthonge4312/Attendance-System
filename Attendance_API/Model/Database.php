@@ -29,10 +29,22 @@ class Database
     public function insert($query = "", $params = [])
     {
         try {
-            $stmt = $this->executeStatement($query, $params);
+            $stmt = $this->executeStatement1($query, $params);
             // $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
             $stmt->close();
-            return true;
+            return $stmt;
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+        return false;
+    }
+    public function delete($query = "", $params = [])
+    {
+        try {
+            $stmt = $this->executeStatement1($query, $params);
+            // $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+            $stmt->close();
+            return $stmt;
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -48,6 +60,23 @@ class Database
             }
             if ($params) {
                 $stmt->bind_param($params[0], $params[1]);
+            }
+            $stmt->execute();
+            return $stmt;
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+
+    }
+    private function executeStatement1($query = "", $params = [])
+    {
+        try {
+            $stmt = $this->connection->prepare($query);
+            if ($stmt === false) {
+                throw new Exception("Unable to do prepared statement: " . $query);
+            }
+            if ($params) {
+                $stmt->bind_param($params[0], $params[1], $params[2], $params[3]);
             }
             $stmt->execute();
             return $stmt;

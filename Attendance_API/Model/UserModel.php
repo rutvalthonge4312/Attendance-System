@@ -11,10 +11,13 @@ class UserModel extends Database
     {
         return $this->select("SELECT * FROM usersignup where username='$username' and password='$password' limit 1");
     }
-    public function addStudent($name, $roll, $division, $totalAttendance)
+    public function addStudent($roll, $name, $division)
     {
-        return $this->insert("insert into student values ('$name',$roll,'$division',$totalAttendance)");
+        return $this->insert("insert into student (roll,Name,division) values ($roll,'$name','$division')");
     }
 
-
+    public function removeStudent($roll)
+    {
+        return $this->delete("delete FROM student where roll='$roll'");
+    }
 }
